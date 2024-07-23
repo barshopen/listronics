@@ -16,3 +16,16 @@
     border-bottom: 1px solid #ddd;
   }
   
+  .add-card-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #7aad85;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .add-card-button:hover {
+    background-color: #218838;
+  }
