@@ -1,7 +1,7 @@
 import React from 'react';
 import './Board.css';
 import List from './List';
-import Card, { CardProps } from './Card';
+import { CardProps } from './Card';
 
 
 
@@ -35,6 +35,6 @@ const Board: React.FC = () => {
       ))}
     </div>
   );
-}
+};
 
 export default Board;
