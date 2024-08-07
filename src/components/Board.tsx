@@ -1,75 +1,50 @@
 import React, { useState } from 'react';
 import './Board.css';
-import List from './List';
+import List, { ListProps } from './List';
 import Modal from './Modal';
-import { CardProps } from './Card';
 
 
-
-interface ListData {
-  title: string;
-  cards: CardProps[];
+export interface BoardProps {
+  name: string;
+  lists: ListProps[];
+  onAddList: (title: string) => void;
 }
 
-const initialData: ListData[] = [
-  {
-    title: 'To Do',
-    cards: [],
-  },
-  {
-    title: 'In Progress',
-    cards: [],
-  },
-  {
-    title: 'Done',
-    cards: [],
-  },
-];
-
-const Board: React.FC = () => {
-  const [lists, setLists] = useState<ListData[]>(initialData);
+const Board: React.FC<BoardProps> = ({ name, lists, onAddList }) => {
+  const [listTitle, setListTitle] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [currentListIndex, setCurrentListIndex] = useState<number | null>(null);
 
-  const addCardToList = (listIndex: number, title: string, description: string) => {
-    const newLists = lists.map((list, index) => {
-      if (index === listIndex) {
-        return {
-          ...list,
-          cards: [...list.cards, { title, description }]
-        };
-      }
-      return list;
-    });
-    setLists(newLists);
-  };
-
-  const handleAddCardClick = (index: number) => {
-    setCurrentListIndex(index);
-    setShowModal(true);
-  };
-
-  const handleSaveCard = (title: string, description: string) => {
-    if (currentListIndex !== null) {
-      addCardToList(currentListIndex, title, description);
+  const handleSaveList = () => {
+    if (listTitle.trim()) {
+      onAddList(listTitle);
+      setListTitle('');
+      setShowModal(false);
     }
   };
 
+
   return (
     <div className="board">
-      {lists.map((list, index) => (
-        <List
-          key={index}
-          title={list.title}
-          cards={list.cards}
-          onAddCard={() => handleAddCardClick(index)}
+      <button className="add-list-button" onClick={() => setShowModal(true)}>Add List</button>
+      <div className="lists-container">
+        {lists.map((list, index) => (
+          <List
+            key={index}
+            title={list.title}
+            cards={list.cards}
+            onAddCard={(title, description) => list.onAddCard(title, description)}
+          />
+        ))}
+      </div>
+      {showModal && (
+        <Modal
+          show={showModal}
+          onClose={() => setShowModal(false)}
+          onSave={handleSaveList}
+          onTitleChange={setListTitle}
+          title="Add List"
         />
-      ))}
-      <Modal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-        onSave={handleSaveCard}
-      />
+      )}
     </div>
   );
 };

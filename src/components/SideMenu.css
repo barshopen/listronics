@@ -1,0 +1,57 @@
+.side-menu {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.side-menu h2 {
+  margin-top: 0;
+}
+
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  padding: 10px;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Border to make it look like a button */
+  text-align: center; /* Center the text */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* Optional: add a slight shadow */
+  transition: background-color 0.3s, transform 0.1s, color 0.3s; /* Smooth transition for color changes */
+}
+
+.side-menu ul li:hover {
+  background-color: #ccc;
+  transform: scale(1.02); /* Slight zoom effect on hover */
+  border-color: #bbb; /* Darken the border on hover */
+}
+
+.side-menu input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.side-menu button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.side-menu button:hover {
+  background-color: #218838;
+}
