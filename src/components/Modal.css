@@ -21,7 +21,7 @@
   }
   
   .close {
-    color: #aaa;
+    color: #09ff5b;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -45,7 +45,7 @@
   button {
     padding: 10px 20px;
     background-color: #28a745;
-    color: white;
+    color: #28a745;
     border: none;
     cursor: pointer;
   }

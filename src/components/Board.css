@@ -1,12 +1,14 @@
 .board {
-    width: 1200px;
-    max-width: 1200px;
-    height: 600px;
-    margin: 0 auto;
-    border: 2px solid #ccc;
-    background-color: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+  padding: 16px;
+}
+
+.add-list-button {
+  margin-bottom: 16px;
+}
+
+.lists-container {
+  display: flex;
+  flex-direction: row; 
+  gap: 16px; 
+  overflow-x: auto;
+}
